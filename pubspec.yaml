@@ -1,0 +1,31 @@
+name: beast_core
+description: >-
+  All-in-one Beast toolkit for Flutter — bundles beast_logger, beast_context, 
+  beast_startup, beast_subscription, and beast_onboarding into a single import.
+version: 1.0.0
+homepage: https://github.com/YourOrg/beast_core
+repository: https://github.com/YourOrg/beast_core
+publish_to: none # Remove this line when ready to publish
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  beast_logger:
+    path: packages/beast_logger
+  beast_context:
+    path: packages/beast_context
+  beast_startup:
+    path: packages/beast_startup
+  beast_subscription:
+    path: packages/beast_subscription
+  beast_onboarding:
+    path: packages/beast_onboarding
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

@@ -1,0 +1,20 @@
+name: beast_logger
+description: A configurable Talker-based logging service for Flutter apps with custom log types, Dio integration, and Riverpod observer support.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  talker_flutter: ^5.1.13
+  talker_dio_logger: ^5.1.13
+  talker_riverpod_logger: ^5.1.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
