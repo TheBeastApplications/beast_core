@@ -95,7 +95,7 @@ class SubscriptionState extends _$SubscriptionState {
   }
 
   Future<T?> executePremium<T>(
-    Future<T> Function() func,
+    Future<T?> Function() func,
     dynamic context,
   ) async {
     final currentData = await ref.read(subscriptionStateProvider.future);

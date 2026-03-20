@@ -7,6 +7,8 @@ import 'startup_loading_widget.dart';
 /// A startup screen that watches [appStartupProvider] and shows
 /// loading/error/loaded states automatically.
 ///
+/// Transitions between states are animated with a smooth fade + scale effect.
+///
 /// Usage:
 /// ```dart
 /// MaterialApp.router(
@@ -30,6 +32,7 @@ class BeastStartupScreen extends ConsumerWidget {
     required this.onLoaded,
     this.loadingBuilder,
     this.errorBuilder,
+    this.transitionDuration = const Duration(milliseconds: 600),
   });
 
   /// Builder called when startup completes successfully.
@@ -41,27 +44,54 @@ class BeastStartupScreen extends ConsumerWidget {
   /// Optional custom error widget builder.
   final Widget Function(String error, VoidCallback onRetry)? errorBuilder;
 
+  /// Duration of the crossfade transition between loading and loaded states.
+  final Duration transitionDuration;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appStartupState = ref.watch(appStartupProvider);
-    return appStartupState.when(
+
+    final child = appStartupState.when(
       skipLoadingOnRefresh: false,
       skipLoadingOnReload: false,
-      data: (_) => onLoaded(context),
-      loading: () =>
-          loadingBuilder?.call() ?? const BeastStartupLoadingWidget(),
-      error: (e, st) {
-        return Scaffold(
-          body:
-              errorBuilder?.call(e.toString(), () {
+      data: (_) => KeyedSubtree(
+        key: const ValueKey('loaded'),
+        child: onLoaded(context),
+      ),
+      loading: () => KeyedSubtree(
+        key: const ValueKey('loading'),
+        child: loadingBuilder?.call() ?? const BeastStartupLoadingWidget(),
+      ),
+      error: (e, st) => KeyedSubtree(
+        key: const ValueKey('error'),
+        child: Scaffold(
+          body: errorBuilder?.call(e.toString(), () {
                 ref.invalidate(appStartupProvider);
               }) ??
               BeastStartupErrorWidget(
                 error: e.toString(),
                 onRetry: () => ref.invalidate(appStartupProvider),
               ),
+        ),
+      ),
+    );
+
+    return AnimatedSwitcher(
+      duration: transitionDuration,
+      switchInCurve: Curves.easeOut,
+      switchOutCurve: Curves.easeIn,
+      transitionBuilder: (widget, animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.97, end: 1.0).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOut),
+            ),
+            child: widget,
+          ),
         );
       },
+      child: child,
     );
   }
 }
