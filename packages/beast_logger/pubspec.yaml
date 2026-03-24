@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  talker_flutter: ^5.1.13
-  talker_dio_logger: ^5.1.13
-  talker_riverpod_logger: ^5.1.9
+  talker_flutter: ^5.1.15
+  talker_dio_logger: ^5.1.15
+  talker_riverpod_logger: ^5.1.14
 
 dev_dependencies:
   flutter_test:

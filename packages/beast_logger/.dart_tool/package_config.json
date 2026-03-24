@@ -39,7 +39,7 @@
     },
     {
       "name": "characters",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.4.0",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.4.1",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -131,7 +131,7 @@
       "name": "flutter",
       "rootUri": "file:///D:/Development/Flutter/SDK/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "3.8"
+      "languageVersion": "3.9"
     },
     {
       "name": "flutter_lints",
@@ -143,13 +143,13 @@
       "name": "flutter_test",
       "rootUri": "file:///D:/Development/Flutter/SDK/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "3.8"
+      "languageVersion": "3.9"
     },
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///D:/Development/Flutter/SDK/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "3.8"
+      "languageVersion": "3.9"
     },
     {
       "name": "frontend_server_client",
@@ -194,12 +194,6 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "js",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.7.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.7"
-    },
-    {
       "name": "leak_tracker",
       "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/leak_tracker-11.0.2",
       "packageUri": "lib/",
@@ -231,15 +225,15 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/matcher-0.12.17",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/matcher-0.12.19",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "3.7"
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/material_color_utilities-0.11.1",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/material_color_utilities-0.13.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.5"
     },
     {
       "name": "meta",
@@ -389,7 +383,7 @@
       "name": "sky_engine",
       "rootUri": "file:///D:/Development/Flutter/SDK/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "3.8"
+      "languageVersion": "3.9"
     },
     {
       "name": "source_map_stack_trace",
@@ -435,31 +429,31 @@
     },
     {
       "name": "talker",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker-5.1.13",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker-5.1.15",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "talker_dio_logger",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_dio_logger-5.1.13",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_dio_logger-5.1.15",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
     {
       "name": "talker_flutter",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_flutter-5.1.13",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_flutter-5.1.15",
       "packageUri": "lib/",
       "languageVersion": "3.6"
     },
     {
       "name": "talker_logger",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_logger-5.1.13",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_logger-5.1.15",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
     {
       "name": "talker_riverpod_logger",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_riverpod_logger-5.1.13",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/talker_riverpod_logger-5.1.14",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -471,21 +465,21 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/test-1.26.3",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/test-1.30.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.7"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.7.7",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.7.10",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.7"
     },
     {
       "name": "test_core",
-      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/test_core-0.6.12",
+      "rootUri": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache/hosted/pub.dev/test_core-0.6.16",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.7"
     },
     {
       "name": "typed_data",
@@ -591,8 +585,8 @@
     }
   ],
   "generator": "pub",
-  "generatorVersion": "3.10.8",
+  "generatorVersion": "3.11.3",
   "flutterRoot": "file:///D:/Development/Flutter/SDK/flutter",
-  "flutterVersion": "3.38.9",
+  "flutterVersion": "3.41.5",
   "pubCache": "file:///C:/Users/jaswa/AppData/Local/Pub/Cache"
 }
