@@ -19,7 +19,7 @@
 export 'package:beast_logger/beast_logger.dart';
 
 // Context — BuildContext extensions for GoRouter navigation & snackbars
-export 'package:beast_context/beast_context.dart';
+export 'package:beast_extensions/beast_extensions.dart';
 
 // Startup — Splash screen orchestration with init steps & loading/error UI
 export 'package:beast_startup/beast_startup.dart';
