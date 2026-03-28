@@ -36,6 +36,10 @@ class BeastLogger {
   void custom(TalkerLog log) => talker.logCustom(log);
 
   void setEnabled(bool value) => talker.settings.enabled = value;
+
+  void setLevel(LogLevel value) => talker.configure(
+    logger: TalkerLogger(settings: TalkerLoggerSettings(level: value)),
+  );
 }
 
 class CustomTitleLogger extends TalkerLog {
