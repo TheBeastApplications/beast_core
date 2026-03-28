@@ -14,7 +14,7 @@
 /// );
 /// context.snackbar.successSnackBar('Done!');
 /// ```
-library beast_context;
+library;
 
 export 'src/build_context_extensions.dart';
 export 'src/custom_snackbar.dart';

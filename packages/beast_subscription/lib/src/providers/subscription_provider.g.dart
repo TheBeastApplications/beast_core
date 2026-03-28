@@ -75,7 +75,7 @@ final class SubscriptionStateProvider
   SubscriptionState create() => SubscriptionState();
 }
 
-String _$subscriptionStateHash() => r'96dbaf07b7206cead31fa62f7d581805b393a03f';
+String _$subscriptionStateHash() => r'bbb55fc65fc234fc2e829e621aab2ac9cb62a5c3';
 
 /// Single source of truth for subscription state.
 ///

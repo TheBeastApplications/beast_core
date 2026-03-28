@@ -1,6 +1,6 @@
 name: beast_onboarding
 description: A configurable onboarding wrapper with Riverpod state management for Flutter apps.
-version: 1.0.0
+version: 1.0.1
 publish_to: none
 
 environment:

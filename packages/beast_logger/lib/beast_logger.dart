@@ -20,7 +20,7 @@
 /// }
 /// logger.logCustom(MyCustomLog('Custom event'));
 /// ```
-library beast_logger;
+library;
 
 export 'src/logger_service.dart';
 export 'src/custom_log.dart';

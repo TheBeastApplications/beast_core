@@ -20,7 +20,7 @@
 ///   ),
 /// )
 /// ```
-library beast_startup;
+library;
 
 export 'src/app_startup_provider.dart';
 export 'src/app_startup_screen.dart';

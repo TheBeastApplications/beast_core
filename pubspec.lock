@@ -61,7 +61,7 @@ packages:
       path: "packages/beast_onboarding"
       relative: true
     source: path
-    version: "1.0.0"
+    version: "1.0.1"
   beast_startup:
     dependency: "direct main"
     description:

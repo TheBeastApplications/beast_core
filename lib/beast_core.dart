@@ -14,6 +14,7 @@
 /// import 'package:beast_logger/beast_logger.dart';
 /// import 'package:beast_context/beast_context.dart';
 /// ```
+library;
 
 // Logging — Talker-based logger with custom log types, Dio & Riverpod support
 export 'package:beast_logger/beast_logger.dart';

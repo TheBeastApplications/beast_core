@@ -22,7 +22,7 @@
 /// // 3. Show RevenueCat paywall (optional)
 /// RevenueCatUI.presentPaywallIfNeeded('premium');
 /// ```
-library beast_subscription;
+library;
 
 export 'src/subscription_config.dart';
 export 'src/providers/subscription_provider.dart';

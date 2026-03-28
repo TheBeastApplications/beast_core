@@ -1,0 +1,1 @@
+Read the file at F:/DEV/DEV/theBeastApplications/antigravity/packages/beast_core/LLM_SETUP.md and follow every step to integrate beast_core into this Flutter app. Adjust the relative path to beast_core based on this project's location.
