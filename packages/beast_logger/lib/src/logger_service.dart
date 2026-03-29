@@ -6,7 +6,8 @@ class BeastLogger {
     LogLevel level = LogLevel.verbose,
     bool enabled = true,
     bool useConsoleLogs = true,
-  }) : talker = Talker(
+  })  : _level = level,
+        talker = Talker(
          filter: filter ?? TalkerFilter(),
          logger: TalkerLogger(settings: TalkerLoggerSettings(level: level)),
          settings: TalkerSettings(
@@ -16,6 +17,10 @@ class BeastLogger {
        );
 
   final Talker talker;
+  LogLevel _level;
+
+  /// The current log level.
+  LogLevel get level => _level;
 
   // --- passthrough helpers ---
 
@@ -37,9 +42,12 @@ class BeastLogger {
 
   void setEnabled(bool value) => talker.settings.enabled = value;
 
-  void setLevel(LogLevel value) => talker.configure(
-    logger: TalkerLogger(settings: TalkerLoggerSettings(level: value)),
-  );
+  void setLevel(LogLevel value) {
+    _level = value;
+    talker.configure(
+      logger: TalkerLogger(settings: TalkerLoggerSettings(level: value)),
+    );
+  }
 }
 
 class CustomTitleLogger extends TalkerLog {
