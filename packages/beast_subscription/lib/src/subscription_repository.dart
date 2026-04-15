@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:beast_subscription/beast_subscription.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 abstract class DefaultSubscriptionRepository {
@@ -29,10 +30,49 @@ abstract class DefaultSubscriptionRepository {
 
       await Purchases.configure(PurchasesConfiguration(apiKey));
       config.logHandler?.call('RevenueCat SDK configured');
+
+      // Set device info as subscriber attributes (fire and forget)
+      setDeviceAttributes();
     } catch (e) {
       config.logHandler?.call('Failed to initialize RevenueCat: $e');
       rethrow;
     }
+  }
+
+  /// Collects device info and sets it as RevenueCat subscriber attributes.
+  /// Override to add custom attributes or skip device info collection.
+  Future<void> setDeviceAttributes() async {
+    try {
+      final deviceInfo = DeviceInfoPlugin();
+      final attributes = <String, String>{};
+
+      if (Platform.isAndroid) {
+        final android = await deviceInfo.androidInfo;
+        attributes['device_name'] = android.model;
+        attributes['device_manufacturer'] = android.manufacturer;
+        attributes['device_brand'] = android.brand;
+        attributes['os_version'] = 'Android ${android.version.release}';
+        attributes['sdk_version'] = android.version.sdkInt.toString();
+        attributes['device_product'] = android.product;
+      } else if (Platform.isIOS) {
+        final ios = await deviceInfo.iosInfo;
+        attributes['device_name'] = ios.name;
+        attributes['device_model'] = ios.utsname.machine;
+        attributes['os_version'] = 'iOS ${ios.systemVersion}';
+      }
+
+      if (attributes.isNotEmpty) {
+        await Purchases.setAttributes(attributes);
+        config.logHandler?.call('Device attributes set: $attributes');
+      }
+    } catch (e) {
+      config.logHandler?.call('Failed to set device attributes: $e');
+    }
+  }
+
+  /// Update RevenueCat log level at runtime.
+  void setVerboseLogging(bool enabled) {
+    Purchases.setLogLevel(enabled ? LogLevel.verbose : LogLevel.info);
   }
 
   void setupListener(Function(CustomerInfo) onUpdate) {

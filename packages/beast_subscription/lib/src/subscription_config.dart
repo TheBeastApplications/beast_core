@@ -18,6 +18,10 @@ class SubscriptionConfig {
   /// Whether to enable verbose RevenueCat logging (default: false).
   final bool verboseLogging;
 
+  /// Entitlement IDs that are granted manually via RevenueCat dashboard
+  /// (not through in-app purchase). Used to distinguish paid vs manual access.
+  final List<String> manualEntitlementIds;
+
   /// Callback to navigate to the paywall screen.
   final void Function(BuildContext context)? showPaywall;
 
@@ -25,6 +29,7 @@ class SubscriptionConfig {
     required this.androidApiKey,
     required this.iosApiKey,
     required this.entitlementId,
+    this.manualEntitlementIds = const [],
     this.logHandler,
     this.showPaywall,
     this.verboseLogging = false,

@@ -8,7 +8,10 @@
       "Bash(grep -E \"\\\\.dart$\")",
       "Bash(flutter pub:*)",
       "Read(//f/DEV/DEV/theBeastApplications/antigravity/packages/beast_core/$LOCALAPPDATA/Pub/**)",
-      "Read(//f/DEV/DEV/theBeastApplications/antigravity/packages/beast_core/$HOME/**)"
+      "Read(//f/DEV/DEV/theBeastApplications/antigravity/packages/beast_core/$HOME/**)",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(flutter analyze *)"
     ]
   }
 }

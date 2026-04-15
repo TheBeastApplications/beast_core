@@ -94,12 +94,30 @@ class SubscriptionState extends _$SubscriptionState {
     return _repo.getAvailablePackages();
   }
 
+  /// Execute [func] only if the user has the required entitlement.
+  ///
+  /// - [paidOnly]: if `true`, only allows users who paid through the store
+  ///   (ignores manual entitlements). Defaults to `false` (any entitlement).
+  /// - [entitlementId]: if set, only allows users who have this specific
+  ///   entitlement active. Overrides both [paidOnly] and the default check.
   Future<T?> executePremium<T>(
     Future<T?> Function() func,
-    dynamic context,
-  ) async {
-    final currentData = await ref.read(subscriptionStateProvider.future);
-    if (!currentData.isSubscribed && !currentData.hasAnyEntitlement) {
+    dynamic context, {
+    bool paidOnly = false,
+    String? entitlementId,
+  }) async {
+    final data = await ref.read(subscriptionStateProvider.future);
+
+    final bool allowed;
+    if (entitlementId != null) {
+      allowed = data.activeEntitlementIds.contains(entitlementId);
+    } else if (paidOnly) {
+      allowed = data.isPaidSubscriber;
+    } else {
+      allowed = data.isSubscribed;
+    }
+
+    if (!allowed) {
       _repo.showPaywall(context);
       return null;
     }
