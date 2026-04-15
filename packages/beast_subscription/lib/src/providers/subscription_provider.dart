@@ -52,9 +52,9 @@ class SubscriptionState extends _$SubscriptionState {
     return SubscriptionData.fromCustomerInfo(customerInfo, _repo);
   }
 
-  /// Returns the RevenueCat user ID, or empty string if not yet loaded.
-  String getUserId() {
-    return state.value?.customerInfo.originalAppUserId ?? '';
+  /// Returns the RevenueCat user ID, or null if not yet loaded.
+  String? getUserId() {
+    return state.value?.customerInfo.originalAppUserId;
   }
 
   /// Update state with new [CustomerInfo] (e.g. after a purchase or restore).

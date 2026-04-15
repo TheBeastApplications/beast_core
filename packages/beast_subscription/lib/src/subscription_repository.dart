@@ -6,8 +6,11 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 
 abstract class DefaultSubscriptionRepository {
   abstract SubscriptionConfig config;
+  bool _initialized = false;
+  bool _listenerRegistered = false;
 
   Future<void> initialize() async {
+    if (_initialized) return;
     try {
       final apiKey = Platform.isAndroid
           ? config.androidApiKey
@@ -33,6 +36,7 @@ abstract class DefaultSubscriptionRepository {
 
       // Set device info as subscriber attributes (fire and forget)
       setDeviceAttributes();
+      _initialized = true;
     } catch (e) {
       config.logHandler?.call('Failed to initialize RevenueCat: $e');
       rethrow;
@@ -76,9 +80,11 @@ abstract class DefaultSubscriptionRepository {
   }
 
   void setupListener(Function(CustomerInfo) onUpdate) {
+    if (_listenerRegistered) return;
     Purchases.addCustomerInfoUpdateListener((customerInfo) {
       onUpdate(customerInfo);
     });
+    _listenerRegistered = true;
   }
 
   /// Fetch latest customer info from RevenueCat.
