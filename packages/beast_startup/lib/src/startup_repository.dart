@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'in_app_update_service.dart';
+
 /// A named initialization step.
 class InitStep {
   /// Human-readable name (used for logging).
@@ -46,6 +48,25 @@ class DefaultStartupRepository {
 
   /// Optional callback when an init step fails.
   void onStepError(String stepName, Object error, StackTrace stackTrace) {}
+
+  /// Android Play Store in-app update behavior. Disabled by default.
+  ///
+  /// Override in your subclass to enable, e.g.:
+  /// ```dart
+  /// @override
+  /// InAppUpdateConfig get updateConfig => const InAppUpdateConfig(
+  ///       mode: BeastUpdateMode.flexible,
+  ///     );
+  /// ```
+  InAppUpdateConfig get updateConfig => InAppUpdateConfig.disabled;
+
+  /// Whether a failure in the update check should fail startup.
+  /// Defaults to false — update errors are logged via [onUpdateError]
+  /// and startup continues.
+  bool get failStartupOnUpdateError => false;
+
+  /// Called when the in-app update check throws.
+  void onUpdateError(Object error, StackTrace stackTrace) {}
 }
 
 /// Provider for the startup config.

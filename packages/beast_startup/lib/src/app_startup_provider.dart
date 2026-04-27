@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:beast_startup/src/in_app_update_service.dart';
 import 'package:beast_startup/src/startup_repository_provider.dart';
 import 'package:beast_startup/src/timing.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -29,6 +30,17 @@ Future<void> appStartup(Ref ref) async {
   repo.logHandler('Starting app initialization...');
 
   try {
+    // Android Play Store in-app update check (no-op when disabled or
+    // on non-Android platforms).
+    if (repo.updateConfig.mode != BeastUpdateMode.disabled) {
+      try {
+        await runInAppUpdate(repo.updateConfig, log: repo.logHandler);
+      } catch (e, stackTrace) {
+        repo.onUpdateError(e, stackTrace);
+        if (repo.failStartupOnUpdateError) rethrow;
+      }
+    }
+
     // Run each init step in sequence
     for (final step in repo.steps) {
       if (stopwatch != null) {

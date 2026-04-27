@@ -28,3 +28,4 @@ export 'src/startup_loading_widget.dart';
 export 'src/startup_error_widget.dart';
 export 'src/startup_repository.dart';
 export 'src/startup_repository_provider.dart';
+export 'src/in_app_update_service.dart';
